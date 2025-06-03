@@ -1,0 +1,669 @@
+/* Responsive CSS for Library Management System */
+
+/* Base styles */
+body {
+    background: #f8f9fa;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Sidebar styles */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 250px;
+    height: 100vh;
+    background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+    color: #fff;
+    padding-top: 30px;
+    box-shadow: 3px 0 15px rgba(0,0,0,0.1);
+    z-index: 1000;
+    transition: transform 0.3s ease;
+    overflow-y: auto; /* Allow scrolling for tall sidebars */
+}
+
+.sidebar h2 {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.sidebar ul li {
+    margin-bottom: 5px;
+}
+
+.sidebar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 12px 20px;
+    display: block;
+    transition: all 0.3s;
+    border-radius: 5px;
+    margin: 0 10px;
+}
+
+.sidebar ul li a:hover, .sidebar ul li.active a {
+    background: rgba(255,255,255,0.1);
+    transform: translateX(5px);
+}
+
+.sidebar ul li a i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+.container {
+    margin-left: 270px;
+    padding: 30px 40px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+    margin-top: 30px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+    transition: margin-left 0.3s ease;
+}
+
+/* Mobile menu toggle */
+.mobile-menu-toggle {
+    display: none;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1001;
+    background: #0d6efd;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+/* Welcome message */
+.welcome-message {
+    background: #e8f4ff;
+    border-left: 4px solid #007bff;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+}
+
+.welcome-message i {
+    margin-right: 10px;
+    color: #007bff;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table th {
+    background-color: #f8f9fa;
+    color: #495057;
+    font-weight: 600;
+    text-align: left;
+    padding: 12px 15px;
+    border-bottom: 2px solid #dee2e6;
+}
+
+table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #e9ecef;
+    vertical-align: middle;
+}
+
+/* Forms */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+/* Cards */
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    margin-bottom: 20px;
+}
+
+.card-header {
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: rgba(0, 0, 0, 0.03);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.card-body {
+    flex: 1 1 auto;
+    padding: 1.25rem;
+}
+
+/* Stats cards */
+.stats-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    flex: 1;
+    min-width: 200px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.stat-card:hover, .stat-card.hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.stat-card i {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.stat-card h3 {
+    font-size: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+.stat-card p {
+    color: #6c757d;
+    margin-top: 5px;
+    font-size: 1rem;
+}
+
+/* Search box */
+.search-box {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 10px 15px;
+    padding-right: 40px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.search-box i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6c757d;
+}
+
+/* Nav tabs */
+.nav-tabs {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.nav-tabs .nav-link {
+    margin-bottom: -1px;
+    border: 1px solid transparent;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    color: #495057;
+    transition: all 0.2s;
+}
+
+.nav-tabs .nav-link:hover {
+    border-color: #e9ecef #e9ecef #dee2e6;
+}
+
+.nav-tabs .nav-link.active {
+    color: #0d6efd;
+    background-color: #fff;
+    border-color: #dee2e6 #dee2e6 #fff;
+}
+
+/* Bible quote */
+.bible-quote {
+    font-style: italic;
+    background: #f8f9fa;
+    border-left: 4px solid;
+    padding: 15px 20px;
+    border-radius: 8px;
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    min-width: 280px;
+    max-width: 350px;
+    z-index: 999;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+    background-clip: padding-box;
+    transition: all 0.3s;
+}
+
+.bible-quote:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* Home page styles */
+.home-container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.home-header {
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.home-content {
+    padding: 30px 20px;
+}
+
+.action-card {
+    flex: 1;
+    min-width: 250px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    padding: 25px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid #e1e4e8;
+    margin-bottom: 20px;
+}
+
+/* Additional styles for better table responsiveness */
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 1rem;
+}
+
+/* Stats card for borrowed books page */
+.stats-card {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    border-left: 5px solid #007bff;
+    transition: all 0.3s ease;
+}
+
+.stats-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.stats-card i {
+    font-size: 2.5rem;
+    color: #007bff;
+    margin-right: 20px;
+}
+
+.stats-card .stats-info h3 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: #343a40;
+}
+
+.stats-card .stats-info p {
+    margin: 5px 0 0;
+    color: #6c757d;
+}
+
+/* Empty message styling */
+.empty-message {
+    text-align: center;
+    padding: 30px;
+    color: #6c757d;
+    font-style: italic;
+}
+
+/* Stats cards for view members page */
+.stats-cards {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    flex: 1;
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border-left: 4px solid #007bff;
+    display: flex;
+    align-items: center;
+}
+
+.stat-card i {
+    font-size: 2.5rem;
+    margin-right: 20px;
+    color: #007bff;
+}
+
+.stat-card .stat-content h3 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+.stat-card .stat-content p {
+    margin: 5px 0 0;
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* User table styles */
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    background: #fafbfc;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.user-table th, .user-table td {
+    padding: 15px 12px;
+    border: 1px solid #e1e4e8;
+    text-align: left;
+}
+
+.user-table th {
+    background: #f1f5f9;
+    color: #34495e;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+.user-table tr:hover {
+    background: #f8f9fa;
+}
+
+.badge {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.badge-google {
+    background: #ea4335;
+    color: white;
+}
+
+.badge-email {
+    background: #34495e;
+    color: white;
+}
+
+/* Responsive styles for mobile */
+@media (max-width: 992px) {
+    .sidebar {
+        transform: translateX(-100%);
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .sidebar.active {
+        transform: translateX(0);
+    }
+    
+    .container {
+        margin-left: 0;
+        padding: 20px;
+        margin-top: 60px;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .mobile-menu-toggle {
+        display: block;
+    }
+    
+    .stats-cards, .stats-container {
+        flex-direction: column;
+    }
+    
+    .stat-card {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    
+    .bible-quote {
+        position: static;
+        margin-top: 20px;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .table-responsive {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+        margin-top: 50px;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    .stats-card, .stat-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+    }
+    
+    .stats-card i, .stat-card i {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    
+    .table-responsive {
+        border: 0;
+    }
+    
+    table th, table td, 
+    .user-table th, .user-table td {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+    
+    .search-box input {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: 10px;
+        margin-top: 50px;
+        border-radius: 8px;
+    }
+    
+    h2 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+    
+    .stats-card, .stat-card {
+        padding: 12px;
+        margin-bottom: 20px;
+    }
+    
+    .stats-card i, .stat-card i {
+        font-size: 2rem;
+    }
+    
+    .stats-card .stats-info h3, 
+    .stat-card .stat-content h3 {
+        font-size: 1.5rem;
+    }
+    
+    .stats-card .stats-info p,
+    .stat-card .stat-content p {
+        font-size: 0.9rem;
+    }
+    
+    table, .user-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+    table th, table td,
+    .user-table th, .user-table td {
+        padding: 6px;
+        font-size: 0.85rem;
+    }
+    
+    .badge {
+        padding: 4px 8px;
+        font-size: 0.7rem;
+    }
+    
+    .btn {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+    }
+    
+    .empty-message {
+        padding: 20px;
+        font-size: 0.9rem;
+    }
+    
+    /* Make buttons more touch-friendly on mobile */
+    button, .btn {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .search-box {
+        margin-bottom: 15px;
+    }
+    
+    .search-box input {
+        padding: 8px 30px 8px 10px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Print styles */
+@media print {
+    .sidebar, .mobile-menu-toggle, .bible-quote, .btn {
+        display: none !important;
+    }
+    
+    .container {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        box-shadow: none;
+    }
+    
+    body {
+        background: white;
+    }
+    
+    table {
+        border: 1px solid #ddd;
+    }
+    
+    table th, table td {
+        border: 1px solid #ddd;
+    }
+}
+
+
+
+

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSRF Attack Simulation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #d9534f;
+        }
+        .test-card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+        }
+        button {
+            background-color: #d9534f;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .results {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f5f5f5;
+        }
+        pre {
+            background-color: #eee;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSRF Attack Simulation</h1>
+    <p>This page simulates a Cross-Site Request Forgery (CSRF) attack against your application.</p>
+    
+    <div class="test-card">
+        <h2>Test 4: Admin Login Attack</h2>
+        <p>This form will attempt to log in as an admin without a valid CSRF token.</p>
+        <p><strong>Expected result:</strong> The login should fail with a security validation error.</p>
+        <form id="adminLoginForm" method="post" action="http://localhost/Exo4/admin_login.php" target="resultFrame">
+            <input type="hidden" name="username" value="admin">
+            <input type="hidden" name="password" value="password">
+            <button type="submit">Simulate Admin Login Attack</button>
+        </form>
+    </div>
+    
+    <div class="results">
+        <h2>Results:</h2>
+        <p>The iframe below will show the response from your application. If CSRF protection is working correctly, you should see an error message indicating that the CSRF token validation failed.</p>
+        <iframe name="resultFrame" id="resultFrame" style="width: 100%; height: 300px; border: 1px solid #ddd;"></iframe>
+    </div>
+    
+    <script>
+        // Add event listeners to capture and display the results
+        document.getElementById('adminLoginForm').addEventListener('submit', function() {
+            console.log('Admin Login attack submitted');
+            document.getElementById('resultFrame').onload = function() {
+                try {
+                    const frameContent = document.getElementById('resultFrame').contentDocument.body.innerHTML;
+                    console.log('Response:', frameContent);
+                } catch(e) {
+                    console.log('Cannot access frame content due to same-origin policy - this is expected and good!');
+                }
+            };
+        });
+    </script>
+</body>
+</html>
+
+
